@@ -14,11 +14,13 @@ def fine_cal(mon):
     for j, i in main_list.items():
 
         hour = int(i.split(':')[0]) - 9
-        if hour < 1:
-            hour = 0
-        val += int(i.split(':')[1]) + (hour*60)
-        if val != 0:
+        min = int(i.split(':')[1])
+        if hour <= 0 and min == 0:
+            pass
+        elif hour >= 0 and min > 0:
+            val += int(i.split(':')[1]) + (hour * 60)
             final[j] = i
+
 
     fair = mon/val
     for key, value in final.items():
